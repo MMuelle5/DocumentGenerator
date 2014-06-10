@@ -11,6 +11,16 @@ import java.util.Random;
 
 import com.artofsolving.jodconverter.openoffice.connection.OpenOfficeException;
 
+/**
+ * Ausfuehrende Klasse
+ * Generiert im definierten Ordner Dokumente
+ *  - Aktuelles Dokument gemaess definierter Wahrscheinlichkeit auswaehlen
+ *  - Dokumentennamen zufaellig waehlen
+ *  - Aufruf von DocumentGenerator
+ *  - Zweimaliger Aufruf von DocumentInclMetaGenerator (fuer *.doc und *.pdf)
+ * @author MARIUS
+ *
+ */
 public class CreateDocuments {
 
 	public final static String PATH_DOC = "D:\\testFolderDataRetrieval\\docVorlage";
@@ -78,19 +88,10 @@ public class CreateDocuments {
 			String finalDocName = fileNameWithoutEnding.replaceAll("docVorlage", "docFolders")+".doc";
 			String pdfName = fileNameWithoutEnding.replaceAll("docVorlage", "pdfFolders")+".pdf";
 			System.out.println(i);
-//			System.out.println(docName);
-//			System.out.println(pdfName);
 			try {
 				finalDoc.generatePDF(docName, finalDocName);
 				finalDoc.generatePDF(docName, pdfName);
 			} catch(OpenOfficeException e) {
-//				File del = new File(docName);
-//				del.delete();
-//				System.out.println(docName+" gelöscht");
-//				pdf.disconnect();
-//				pdf.connect();
-//				pdf.generatePDF(docName, pdfName);
-//				System.out.println("neuer versuch");
 				System.out.println(pdfName);
 			}
 			

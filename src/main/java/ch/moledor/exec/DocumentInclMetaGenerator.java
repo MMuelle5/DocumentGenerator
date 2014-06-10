@@ -19,9 +19,14 @@ public class DocumentInclMetaGenerator {
 	
 	private OpenOfficeConnection connection = new SocketOpenOfficeConnection(8100);
 	
-    public void generatePDF(String docfileName, String pdfFilename) {
+	/**
+	 * Konvertiert mit dem OpenOffice-Service ein uebergebenes Dokument in ein neues 
+	 * @param docfileName
+	 * @param pdfFilename
+	 */
+    public void generatePDF(String docfileName, String targetFilename) {
     	File inputFile = new File(docfileName);
-    	File outputFile = new File(pdfFilename);
+    	File outputFile = new File(targetFilename);
 
     	// convert
     	DocumentConverter converter = new OpenOfficeDocumentConverter(connection);
